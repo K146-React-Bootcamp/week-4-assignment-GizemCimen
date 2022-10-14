@@ -1,0 +1,51 @@
+Hafta 4 2. gün Araştırma Ödevleri
+- React class component kullanımı
+- class Component nedir?
+- life cycle metotları nelerdir?
+- Niçin Function componenler class componenterinin yerini aldı?
+
+React class component:
+React Component‘leri kullanıcı arayüzünü şekillendiren, belirli görevleri olan, class veya fonksiyon olarak tanımlanmış,
+geriye react elementleri döndüren, opsiyonel olarak parametre alan yapı taşlarıdır.
+
+İki Componentde aynı işi yapar fakat function component daha çok tavsiye edilir.
+–> Yazması, okunması ve test edilmesi kolaydır.
+–> Daha az kod yazmanızı sağlar.
+–> Daha kolay pratik yapmanızı sağlar.
+–> Performans açısından daha verimlidir.
+//function component
+example: const [name,SetName]= React.useState(‘ ‘)
+//class component
+example: constructor(props) {
+
+   super(props);
+
+   this.state = {name: ‘ ‘}
+
+}
+
+ Life Cycle Methods - Yaşam Döngüsü Metodları
+
+3 aşaması vardır:
+Mounting – Bağlama
+Updating – Güncelleme
+Unmouting – Ayırma
+
+1-Mounting
+Bir component oluştuğunda ve DOM’a eklendiğinde çalışan metotlardır.
+constructor() :             Yapıcı metot bileşen oluşturulurken kullanılır.
+getDerivedStateFromProps(): render metodunu çağırmadan hemen önce hem ilk mount işleminde hem de sonraki güncellemelerde (updating) çağrılır. Durumu güncellemek için bir nesneyi, hiçbir şeyi güncellemek için ise null değerini döndürmelidir.
+render():                   Görüntünün oluşturulduğu aşamadır. Reach elementleri (JSX), diziler, alt DOM ağaşları, DOM üzerindeki metinler ve sayılar bu aşamada görsel bir forma çevrilir. Hem mount hem de güncelleme aşamalarını içerir.
+componentDidMount():        Bileşen bağlanmıştır ve burada yaşam döngüsü devam eder. Çünkü bileşen güncellenebilir.
+
+2-Updating
+Bir component props ve state lerdeki değişikliklerden ötürü tekrar render edildiğinde burada ki metotlar devreye girer.
+getDerivedStateFromProps()
+shouldComponentUpdate():   Bileşen güncellemesi
+getSnapshotBeforeUpdate(): Render aşamasındaki çıktıdan hemen sonraki kısımdır. Bileşenleriniz değimeden önce DOM’un bazı bilgiler almasını sağlar. Örneğin bir kaydırma işleminde kaydırma konumu bu aşamada alınır.
+render() :                 Tekrar görüntü oluşturulacak
+componentDidUpdate():      Bileşen güncellendi
+
+3-Unmouting
+Bir component DOM‘ dan çıktığında bu metot çalışmaktadır.
+componentWillUnmount: Bileşenin yaşam döngüsü bitmeden önceki son istekleri için bir metot
